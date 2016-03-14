@@ -1,0 +1,60 @@
+Test 1		Length		Successful
+Test 2		Char At		Successful
+Test 3		Compare		Successful
+Test 4		Append		Successful
+Test 5		Prepend		Successful
+Test 6		ToLower		Successful
+Test 7		ToUpper		Successful
+Test 8		FindSubstring	Successful
+Test 9		FindFromIndex	Successful
+Test 10		FindReplace	Successful
+Test 11		SetString	Successful
+
+Percentage Passed: 100
+
+
+Test 1		Length		Successful
+Test 2		Char At		Successful
+Test 3		Compare		Successful
+Test 4		Append		Successful
+Test 5		Prepend		Successful
+Test 6		ToLower		Successful
+Test 7		ToUpper		Successful
+Test 8		FindSubstring	Successful
+Test 9		FindFromIndex	Successful
+Test 10		FindReplace	Successful
+Test 11		SetString	Successful
+
+Percentage Passed: 100
+
+
+Test 1		Length		Successful
+Test 2		Char At		Successful
+Test 3		Compare		Successful
+Test 4		Append		Successful
+Test 5		Prepend		Successful
+Test 6		ToLower		Successful
+Test 7		ToUpper		Successful
+Test 8		FindSubstring	Successful
+Test 9		FindFromIndex	Successful
+Test 10		FindReplace	Successful
+Test 11		SetString	Successful
+
+Percentage Passed: 100
+
+
+Test 1		Length		Successful
+Test 2		Char At		Successful
+Test 3		Compare		Successful
+Test 4		Append		Successful
+Test 5		Prepend		Successful
+Test 6		ToLower		Successful
+Test 7		ToUpper		Successful
+Test 8		FindSubstring	Successful
+Test 9		FindFromIndex	Successful
+Test 10		FindReplace	Successful
+Test 11		SetString	Successful
+
+Percentage Passed: 100
+
+
