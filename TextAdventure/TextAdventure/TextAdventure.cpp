@@ -6,6 +6,7 @@
 */
 
 #include <iostream>
+#include "Helper.h"
 #include "Windows.h"
 #include "Map.h"
 #include "Room.h"
@@ -28,17 +29,6 @@ void PrintHelp()
 
 		<< " - quit\n"
 		<< " - exit\n";
-}
-
-//Flushes the input stream
-void ClearInput()
-{
-	//Input stream
-	istream& in = cin;
-	char c;
-
-	//Read characters until a newline
-	while (in.get(c) && c != '\n') ;
 }
 
 int main()
@@ -118,7 +108,7 @@ int main()
 			cout << "That is not a valid command!\n";
 		}
 
-		//Clear the input stream (ensures a chain of invalid commands does not continue
+		//Clear the input stream (ensures a chain of invalid commands does not continue)
 		ClearInput();
 	}
 

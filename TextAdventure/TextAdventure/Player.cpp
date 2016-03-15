@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Helper.h"
 
 Player::Player()
 {
@@ -19,6 +20,8 @@ void Player::Action()
 
 	while (running)
 	{
+		ClearInput();
+
 		std::cout << "\nEnter a command: ";
 		std::cin >> command;
 		std::cout << std::endl;
@@ -33,6 +36,12 @@ void Player::Action()
 		else if (command.ToLowercase() == "inventory")
 		{
 			DisplayInventory();
+		}
+		else if (command.ToLowercase() == "help")
+		{
+			std::cout << "Commands:\n"
+				<< " - attack\n"
+				<< " - inventory\n";
 		}
 		else
 		{
