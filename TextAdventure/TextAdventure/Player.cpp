@@ -55,7 +55,7 @@ void Player::Action(std::vector<Character*> characters)
 		}
 		else
 		{
-			std::cout << "\nInvalid command." << std::endl;
+			std::cout << "Invalid command." << std::endl;
 		}
 	}
 }
