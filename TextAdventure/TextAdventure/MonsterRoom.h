@@ -22,5 +22,7 @@ public:
 
 private:
 	std::vector<Character*> m_characters;
+
+	void DisplayInfo();
 };
 

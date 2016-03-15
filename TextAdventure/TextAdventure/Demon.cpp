@@ -21,7 +21,8 @@ void Demon::Action(std::vector<Character*> characters)
 	//Attack target
 	std::cout << "\n" << m_name << " attacked " << target->GetName() << "\n\n";
 
-	int damage = rand() % 30 + 10;
+	//Damage between 5 and 20
+	int damage = rand() % 15 + 5;
 
 	target->RemoveHealth(damage);
 }

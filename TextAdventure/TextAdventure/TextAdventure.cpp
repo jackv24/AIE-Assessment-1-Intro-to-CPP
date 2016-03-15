@@ -114,6 +114,9 @@ int main()
 		ClearInput();
 	}
 
+	//Make text white
+	SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+
 	cout << "\nThanks for playing!\n" << endl;
 
 	delete player;

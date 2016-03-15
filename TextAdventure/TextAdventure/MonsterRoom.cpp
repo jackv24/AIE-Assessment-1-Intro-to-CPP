@@ -39,17 +39,10 @@ void MonsterRoom::Update(Character* player)
 		}
 	}
 
-	//List enemies
-	if (m_characters.size() <= 1)
+	if (IsClear())
 		std::cout << "\nThere are no enemies here.\n";
 	else
 	{
-		std::cout << "\nEnemies:\n";
-		for (int i = 1; i < m_characters.size(); i++)
-		{
-			std::cout << i << ". " << m_characters[i]->GetName() << "\n";
-		}
-
 		//While the room still has enemies
 		while (!IsClear())
 		{
@@ -57,8 +50,7 @@ void MonsterRoom::Update(Character* player)
 			if (!m_characters[0]->IsAlive())
 				break;
 
-			//Print out the HP of the player
-			std::cout << "\nYour HP: " << m_characters[0]->GetHealth() << std::endl;
+			DisplayInfo();
 
 			//Let each character take a turn
 			for (Character* character : m_characters)
@@ -83,4 +75,16 @@ bool MonsterRoom::IsClear()
 
 	//If the room is clear, return true
 	return true;
+}
+
+void MonsterRoom::DisplayInfo()
+{
+	std::cout << "\nEnemies:\n";
+	for (int i = 1; i < m_characters.size(); i++)
+	{
+		std::cout << i << ". " << m_characters[i]->GetName() << " (" << m_characters[i]->GetHealth() << "HP)" << "\n";
+	}
+
+	//Print out the HP of the player
+	std::cout << "\nYour HP: " << m_characters[0]->GetHealth() << std::endl;
 }
