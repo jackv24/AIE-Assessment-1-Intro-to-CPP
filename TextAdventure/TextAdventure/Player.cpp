@@ -13,7 +13,7 @@ Player::~Player()
 
 }
 
-void Player::Action()
+void Player::Action(std::vector<Character*> characters)
 {
 	//Console handle to change colours
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -31,15 +31,15 @@ void Player::Action()
 
 		std::cout << "\nEnter a command: ";
 		std::cin >> command;
-		std::cout << std::endl;
+		std::cout << std::endl << std::endl;
 
 		//Light red for descriptions
 		SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_INTENSITY);
 
 		if (command.ToLowercase() == "attack")
 		{
-			//TODO: Implement attacks
-			std::cout << "\nYou don't have any attacks, you must run!" << std::endl;
+			//TODO: allow player to choose enemy and attack
+			std::cout << "You have no attacks!\n";
 
 			running = false;
 		}

@@ -17,9 +17,13 @@ public:
 	virtual ~Character();
 
 	String GetName();
+	int GetHealth();
+
+	void RemoveHealth(int amount);
+	bool IsAlive();
 
 	//virtual action function is called on subclasses if they implement the function
-	virtual void Action();
+	virtual void Action(std::vector<Character*> characters);
 	//Displays the inventory of this character
 	void DisplayInventory();
 

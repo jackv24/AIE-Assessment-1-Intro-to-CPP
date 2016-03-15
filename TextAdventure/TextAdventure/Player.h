@@ -14,6 +14,6 @@ public:
 	Player();
 	virtual ~Player();
 
-	virtual void Action();
+	virtual void Action(std::vector<Character*> characters);
 };
 

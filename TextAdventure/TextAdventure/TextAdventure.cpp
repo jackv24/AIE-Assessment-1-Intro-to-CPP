@@ -72,10 +72,10 @@ int main()
 			{
 				//Change the text colour based on what room it is
 				if (map.GetCurrentRoom().GetType() == Room::Type::MONSTER)
-					//Bright red
+					//Bright red for monster
 					SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_INTENSITY);
 				else if (map.GetCurrentRoom().GetType() == Room::Type::TREASURE)
-					//Bright green
+					//Bright green for treasure
 					SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 
 				cout << map.GetCurrentRoom().GetDescription() << endl;
