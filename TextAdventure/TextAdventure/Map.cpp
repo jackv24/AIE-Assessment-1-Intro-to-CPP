@@ -8,11 +8,11 @@ Map::Map()
 	//Hacky implementation of loading the level, but it works -- will be replaced with file IO
 	//Define map layout with ints (0 = empty, 1 = basic, 2 = start, 3 = Monster, 4 = treasure)
 	int level[25] = {
-		3, 1, 1, 0, 3,
+		3, 1, 4, 0, 3,
 		1, 2, 1, 3, 1,
-		4, 1, 4, 1, 0,
+		4, 1, 1, 4, 0,
 		1, 3, 0, 1, 3,
-		0, 1, 1, 1, 4
+		0, 1, 3, 1, 4
 	};
 
 	GenerateMapFromInts(level);

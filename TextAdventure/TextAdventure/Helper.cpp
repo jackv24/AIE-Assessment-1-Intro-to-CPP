@@ -1,6 +1,5 @@
 #include "Helper.h"
 
-//Flushes the input stream
 void ClearInput()
 {
 	//Input stream

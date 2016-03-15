@@ -18,7 +18,9 @@ public:
 
 	String GetName();
 
+	//virtual action function is called on subclasses if they implement the function
 	virtual void Action();
+	//Displays the inventory of this character
 	void DisplayInventory();
 
 protected:

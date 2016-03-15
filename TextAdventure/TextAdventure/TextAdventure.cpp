@@ -33,9 +33,8 @@ void PrintHelp()
 
 int main()
 {
-	// COnsole handle to change colour
+	// Console handle to change colour
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-
 
 	Player* player = new Player();
 

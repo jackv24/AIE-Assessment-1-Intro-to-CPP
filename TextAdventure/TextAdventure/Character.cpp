@@ -26,13 +26,16 @@ String Character::GetName()
 
 void Character::Action()
 {
+	//Nothing happens, because a basic character can do nothing
 	std::cout << m_name << " did nothing." << std::endl;
 }
 
 void Character::DisplayInventory()
 {
+	//If the inventory is empty, indicate this
 	if (m_inventory.empty())
 		std::cout << "\nInventory is empty!" << std::endl;
+	//Otherwise list inventory items
 	else
 	{
 		std::cout << "\nInventory:" << std::endl;
@@ -43,5 +46,6 @@ void Character::DisplayInventory()
 		}
 	}
 
+	//End with a newline (for nice formatting purposes)
 	std::cout << std::endl;
 }
