@@ -15,14 +15,8 @@ void Demon::Action(std::vector<Character*> characters)
 {
 	srand(time(NULL));
 
-	//The enemy to attack
-	Character* target;
-	do
-	{
-		//Select a random enemy
-		target = characters[rand() % characters.size()];
-	} //Make sure the selected target is not itself
-	while (target == this);
+	//The enemy to attack (index 0 is always the player)
+	Character* target = characters[0];
 
 	//Attack target
 	std::cout << "\n" << m_name << " attacked " << target->GetName() << "\n\n";

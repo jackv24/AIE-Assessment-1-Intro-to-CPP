@@ -17,6 +17,9 @@ public:
 
 	virtual void Update(Character* player);
 
+	//Are all the monsters in the room dead?
+	bool IsClear();
+
 private:
 	std::vector<Character*> m_characters;
 };

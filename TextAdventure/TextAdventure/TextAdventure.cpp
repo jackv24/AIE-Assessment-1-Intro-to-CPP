@@ -47,6 +47,9 @@ int main()
 	bool running = true;
 	while (running)
 	{
+		if (!player->IsAlive())
+			break;
+
 		//Set input to be grey text
 		SetConsoleTextAttribute(hConsole, FOREGROUND_INTENSITY);
 
@@ -110,6 +113,8 @@ int main()
 		//Clear the input stream (ensures a chain of invalid commands does not continue)
 		ClearInput();
 	}
+
+	cout << "\nThanks for playing!\n" << endl;
 
 	delete player;
 
