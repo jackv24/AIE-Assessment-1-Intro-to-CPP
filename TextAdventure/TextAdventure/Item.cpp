@@ -2,12 +2,18 @@
 
 Item::Item()
 {
-	m_name = "an item";
+	m_name = "Item";
+	m_type = Type::BASIC;
 }
 
 Item::~Item()
 {
 
+}
+
+Item::Type Item::GetType()
+{
+	return m_type;
 }
 
 void Item::Use()

@@ -27,6 +27,8 @@ void PrintHelp()
 		<< " - walk <direction>\n"
 		<< " - run <direction>\n\n"
 
+		<< " - inventory\n\n"
+
 		<< " - quit\n"
 		<< " - exit\n";
 }

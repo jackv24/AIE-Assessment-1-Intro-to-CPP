@@ -11,8 +11,17 @@
 class Item
 {
 public:
+	enum class Type
+	{
+		BASIC,
+		WEAPON,
+		CONSUMABLE
+	};
+
 	Item();
 	virtual ~Item();
+
+	Type GetType();
 
 	virtual void Use();
 
@@ -20,5 +29,6 @@ public:
 
 protected:
 	String m_name;
+	Type m_type;
 };
 

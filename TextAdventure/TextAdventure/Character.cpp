@@ -73,10 +73,30 @@ void Character::DisplayInventory()
 
 		for (Item* item : m_inventory)
 		{
-			std::cout << "\t" << item->GetName() << std::endl;
+			//Display the type of item as a prefix
+			switch (item->GetType())
+			{
+			case Item::Type::BASIC:
+				std::cout << "I. ";
+				break;
+			case Item::Type::WEAPON:
+				std::cout << "W. ";
+				break;
+			case Item::Type::CONSUMABLE:
+				std::cout << "C. ";
+				break;
+			}
+
+			//Display the item name
+			std::cout << item->GetName() << std::endl;
 		}
 	}
 
 	//End with a newline (for nice formatting purposes)
 	std::cout << std::endl;
+}
+
+void Character::Pickup(Item* item)
+{
+	m_inventory.push_back(item);
 }

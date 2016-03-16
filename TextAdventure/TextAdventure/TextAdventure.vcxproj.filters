@@ -22,7 +22,7 @@
     <Filter Include="Source Files\Characters">
       <UniqueIdentifier>{d56ad6ba-c4cb-4905-b0d2-c7dd0c456ced}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Weapons">
+    <Filter Include="Source Files\Items\Weapons">
       <UniqueIdentifier>{7f397216-f558-4332-a465-64084b1c2041}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -57,9 +57,6 @@
     <ClInclude Include="Item.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Weapon.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Character.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -67,6 +64,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Demon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sword.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -101,14 +101,14 @@
     <ClCompile Include="Character.cpp">
       <Filter>Source Files\Characters</Filter>
     </ClCompile>
-    <ClCompile Include="Weapon.cpp">
-      <Filter>Source Files\Weapons</Filter>
-    </ClCompile>
     <ClCompile Include="Helper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Demon.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Sword.cpp">
+      <Filter>Source Files\Items\Weapons</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
