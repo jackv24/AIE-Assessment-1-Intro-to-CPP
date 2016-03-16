@@ -15,5 +15,7 @@ public:
 	virtual ~Player();
 
 	virtual void Action(std::vector<Character*> characters);
+private:
+	void Attack(Character* target);
 };
 

@@ -24,8 +24,11 @@ public:
 
 	//virtual action function is called on subclasses if they implement the function
 	virtual void Action(std::vector<Character*> characters);
+
 	//Displays the inventory of this character
 	void DisplayInventory();
+	//Add item to inventory
+	void Pickup(Item* item);
 
 protected:
 	String m_name;

@@ -27,6 +27,8 @@ void PrintHelp()
 		<< " - walk <direction>\n"
 		<< " - run <direction>\n\n"
 
+		<< " - inventory\n\n"
+
 		<< " - quit\n"
 		<< " - exit\n";
 }
@@ -50,6 +52,9 @@ int main()
 	bool running = true;
 	while (running)
 	{
+		if (!player->IsAlive())
+			break;
+
 		//Set input to be grey text
 		SetConsoleTextAttribute(hConsole, FOREGROUND_INTENSITY);
 
@@ -113,6 +118,11 @@ int main()
 		//Clear the input stream (ensures a chain of invalid commands does not continue)
 		ClearInput();
 	}
+
+	//Make text white
+	SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+
+	cout << "\nThanks for playing!\n" << endl;
 
 	delete player;
 
