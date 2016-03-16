@@ -41,6 +41,9 @@ int main()
 	//Create the map
 	Map map;
 
+	//Set console text colour to white
+	SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+
 	//Print out the description of the current room
 	cout << map.GetCurrentRoom().GetDescription() << endl;
 
