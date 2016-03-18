@@ -10,6 +10,9 @@
 #include "String.h"
 #include "Item.h"
 
+//Forward declaration resolves circular dependancy problem (Item #includes character)
+class Item;
+
 class Character
 {
 public:

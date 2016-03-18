@@ -100,8 +100,9 @@ void Player::Attack(Character* target)
 		{
 			std::cout << "Your attacks are:\n"
 				<< " - punch\n"
-				<< " - kick\n"
-				<< std::endl;
+				<< " - kick\n\n"
+				
+				<< " - use <weapon name>\n\n";
 
 			continue;
 		}
@@ -119,9 +120,45 @@ void Player::Attack(Character* target)
 			//Damage between 10 and 40
 			target->RemoveHealth(rand() % 30 + 10);
 		}
+		else if (command.ToLowercase() == "use")
+		{
+			String itemName;
+			std::cin >> itemName;
+
+			//Pointer to item to use (stays nullptr if item not found)
+			Item* item = nullptr;
+
+			//Iterate through inventory to find item
+			for (Item* itemToUse : m_inventory)
+			{
+				if (itemToUse->GetName().ToLowercase() == itemName.ToLowercase())
+				{
+					item = itemToUse;
+
+					//If item is found, stop searching
+					break;
+				}
+			}
+
+			//If no item was found...
+			if (item == nullptr)
+			{
+				std::cout << "You don't own a " << itemName << "!\n\n";
+
+				//...return to enter a command
+				continue;
+			}
+			else
+			{
+				std::cout << "You attack " << target->GetName() << " with " << item->GetName() << ".\n\n";
+				
+				//Use item (apply damage, etc)
+				item->Use(target);
+			}
+		}
 		else //If in invalid attack was entered...
 		{
-			std::cout << "You can't use that attack.\n";
+			std::cout << "You can't use that attack.\n\n";
 
 			//...ask again for another attack
 			continue;

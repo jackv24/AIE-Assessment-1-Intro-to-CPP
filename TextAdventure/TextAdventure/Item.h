@@ -7,6 +7,10 @@
 #pragma once
 
 #include "String.h"
+#include "Character.h"
+
+//Forward declaration resolves circular dependancy problem (character #includes Item)
+class Character;
 
 class Item
 {
@@ -23,7 +27,7 @@ public:
 
 	Type GetType();
 
-	virtual void Use();
+	virtual void Use(Character* target);
 
 	String GetName();
 

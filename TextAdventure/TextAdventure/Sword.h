@@ -14,6 +14,6 @@ public:
 	Sword();
 	virtual ~Sword();
 
-	virtual void Use();
+	virtual void Use(Character* target);
 };
 

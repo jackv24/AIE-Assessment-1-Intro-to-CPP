@@ -16,7 +16,7 @@ Item::Type Item::GetType()
 	return m_type;
 }
 
-void Item::Use()
+void Item::Use(Character* target)
 {
 	std::cout << "It did nothing." << std::endl;
 }
