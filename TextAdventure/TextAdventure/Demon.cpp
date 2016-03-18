@@ -5,6 +5,9 @@ Demon::Demon()
 {
 	m_name = "Demon";
 	m_health = 50;
+
+	//Rand initialised to prevent reinitialisation every action
+	srand(time(NULL));
 }
 
 Demon::~Demon()
@@ -13,8 +16,6 @@ Demon::~Demon()
 
 void Demon::Action(std::vector<Character*> characters)
 {
-	srand(time(NULL));
-
 	//The enemy to attack (index 0 is always the player)
 	Character* target = characters[0];
 

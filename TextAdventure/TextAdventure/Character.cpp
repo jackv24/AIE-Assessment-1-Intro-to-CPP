@@ -65,35 +65,34 @@ void Character::DisplayInventory()
 {
 	//If the inventory is empty, indicate this
 	if (m_inventory.empty())
-		std::cout << "Inventory is empty!";
+		std::cout << "Inventory is empty!" << std::endl;
 	//Otherwise list inventory items
 	else
 	{
-		std::cout << "\nInventory:" << std::endl;
+		std::cout << "Inventory:" << std::endl;
 
-		for (Item* item : m_inventory)
+		for (int i = 0; i < m_inventory.size(); i++)
 		{
+			//Display the item name
+			std::cout << i + 1 << ". " << m_inventory[i]->GetName();
+
 			//Display the type of item as a prefix
-			switch (item->GetType())
+			switch (m_inventory[i]->GetType())
 			{
 			case Item::Type::BASIC:
-				std::cout << "I. ";
+				std::cout << " (Item)";
 				break;
 			case Item::Type::WEAPON:
-				std::cout << "W. ";
+				std::cout << " (Weapon)";
 				break;
 			case Item::Type::CONSUMABLE:
-				std::cout << "C. ";
+				std::cout << " (Consumable)";
 				break;
 			}
 
-			//Display the item name
-			std::cout << item->GetName() << std::endl;
+			std::cout << std::endl;
 		}
 	}
-
-	//End with a newline (for nice formatting purposes)
-	std::cout << std::endl;
 }
 
 void Character::Pickup(Item* item)

@@ -7,6 +7,9 @@ Player::Player()
 {
 	m_name = "You";
 	m_health = 100;
+
+	//Rand initialised to prevent reinitialisation every action
+	srand(time(NULL));
 }
 
 Player::~Player()
@@ -85,8 +88,6 @@ void Player::Action(std::vector<Character*> characters)
 
 void Player::Attack(Character* target)
 {
-	srand(time(NULL));
-
 	//continue to loop until an attack has been performed
 	while (true)
 	{

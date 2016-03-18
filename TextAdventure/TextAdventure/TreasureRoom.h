@@ -6,14 +6,22 @@
 
 #pragma once
 
+#include <vector>
 #include "Room.h"
+#include "Item.h"
 
 class TreasureRoom : public Room
 {
 public:
 	TreasureRoom();
-	~TreasureRoom();
+	virtual ~TreasureRoom();
 
 	virtual void Update(Character* player);
+
+private:
+	std::vector<Item*> m_items;
+
+	//Prints out a list of all items in the room
+	void ListItems();
 };
 
