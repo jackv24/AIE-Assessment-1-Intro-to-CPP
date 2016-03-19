@@ -1,6 +1,8 @@
 #include "TreasureRoom.h"
-#include "Sword.h"
 #include "Helper.h"
+
+#include "Sword.h"
+#include "Potion.h"
 
 TreasureRoom::TreasureRoom()
 {
@@ -9,6 +11,7 @@ TreasureRoom::TreasureRoom()
 
 	//TODO: randomly add items
 	m_items.push_back(new Sword());
+	m_items.push_back(new Potion());
 }
 
 TreasureRoom::~TreasureRoom()

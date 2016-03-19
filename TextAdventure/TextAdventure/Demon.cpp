@@ -4,7 +4,7 @@
 Demon::Demon()
 {
 	m_name = "Demon";
-	m_health = 50;
+	m_health = m_maxHealth = 50;
 
 	//Rand initialised to prevent reinitialisation every action
 	srand(time(NULL));

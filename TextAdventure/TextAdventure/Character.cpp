@@ -4,7 +4,7 @@ Character::Character()
 {
 	m_name = "Character";
 
-	m_health = 0;
+	m_health = m_maxHealth = 0;
 }
 
 Character::~Character()
@@ -46,6 +46,22 @@ void Character::RemoveHealth(int amount)
 		}
 	}
 	else
+		std::cout << m_name << " is already dead!\n\n";
+}
+
+void Character::AddHealth(int amount)
+{
+	if (IsAlive())
+	{
+		//Only heal to max health
+		if (amount > m_maxHealth - m_health)
+			amount = m_maxHealth - m_health;
+
+		std::cout << m_name << " gained " << amount << "HP.\n\n";
+		m_health += amount;
+	}
+	else
+		//Cant heal a dead character
 		std::cout << m_name << " is already dead!\n\n";
 }
 

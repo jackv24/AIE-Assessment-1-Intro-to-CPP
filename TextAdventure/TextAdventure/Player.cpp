@@ -6,7 +6,7 @@
 Player::Player()
 {
 	m_name = "You";
-	m_health = 100;
+	m_health = m_maxHealth = 100;
 
 	//Rand initialised to prevent reinitialisation every action
 	srand(time(NULL));
@@ -48,12 +48,10 @@ void Player::Action(std::vector<Character*> characters)
 			std::cin >> enemyNumber;
 
 			//Make sure the chosen enemy index is within bounds
-			while (enemyNumber < 0 || enemyNumber >= characters.size())
+			if (enemyNumber < 0 || enemyNumber >= characters.size())
 			{
-				std::cout << "That enemy does not exist!\nEnemy to attack: ";
-
-				std::cin >> enemyNumber;
-				std::cout << std::endl;
+				std::cout << "That enemy does not exist!\n";
+				continue;
 			}
 
 			Character* target = characters[enemyNumber];
@@ -73,11 +71,66 @@ void Player::Action(std::vector<Character*> characters)
 		{
 			DisplayInventory();
 		}
+		else if (command.ToLowercase() == "use")
+		{
+			String itemName;
+			std::cin >> itemName;
+
+			//Pointer to item to use (stays nullptr if item not found)
+			Item* item = nullptr;
+			//Used to remove item later
+			int itemIndex = -1;
+
+			//Iterate through inventory to find item
+			for (int i = 0; i < m_inventory.size(); i++)
+			{
+				if (m_inventory[i]->GetName().ToLowercase() == itemName.ToLowercase())
+				{
+					//Cant use a weapon on self
+					if (m_inventory[i]->GetType() != Item::Type::WEAPON)
+						item = m_inventory[i];
+
+					itemIndex = i;
+
+					//If item is found, stop searching
+					break;
+				}
+			}
+
+			//If no item was found...
+			if (item == nullptr)
+			{
+				std::cout << "You don't own a " << itemName << " item!\n";
+
+				//...return to enter a command
+				continue;
+			}
+			else
+			{
+				std::cout << "You used " << itemName << ".\n\n";
+
+				//Use item on self
+				item->Use(characters[0]);
+
+				//If the item is consumable, remove it
+				if (item->GetType() == Item::Type::CONSUMABLE)
+				{
+					//Clear memory
+					delete item;
+					//Remove from inventory
+					m_inventory.erase(m_inventory.begin() + itemIndex);
+				}
+
+				//Using an item also uses a turn
+				running = false;
+			}
+		}
 		else if (command.ToLowercase() == "help")
 		{
 			std::cout << "Commands:\n"
 				<< " - attack <enemy number>\n"
-				<< " - inventory\n";
+				<< " - inventory\n"
+				<< " - use <item name>\n";
 		}
 		else
 		{
@@ -122,18 +175,20 @@ void Player::Attack(Character* target)
 		}
 		else if (command.ToLowercase() == "use")
 		{
-			String itemName;
-			std::cin >> itemName;
+			String weaponName;
+			std::cin >> weaponName;
 
 			//Pointer to item to use (stays nullptr if item not found)
-			Item* item = nullptr;
+			Item* weapon = nullptr;
 
 			//Iterate through inventory to find item
 			for (Item* itemToUse : m_inventory)
 			{
-				if (itemToUse->GetName().ToLowercase() == itemName.ToLowercase())
+				if (itemToUse->GetName().ToLowercase() == weaponName.ToLowercase())
 				{
-					item = itemToUse;
+					//Make sure the item is a weapon
+					if(itemToUse->GetType() == Item::Type::WEAPON)
+						weapon = itemToUse;
 
 					//If item is found, stop searching
 					break;
@@ -141,19 +196,19 @@ void Player::Attack(Character* target)
 			}
 
 			//If no item was found...
-			if (item == nullptr)
+			if (weapon == nullptr)
 			{
-				std::cout << "You don't own a " << itemName << "!\n\n";
+				std::cout << "You don't own a " << weaponName << " weapon!\n\n";
 
 				//...return to enter a command
 				continue;
 			}
 			else
 			{
-				std::cout << "You attack " << target->GetName() << " with " << item->GetName() << ".\n\n";
+				std::cout << "You attack " << target->GetName() << " with " << weapon->GetName() << ".\n\n";
 				
 				//Use item (apply damage, etc)
-				item->Use(target);
+				weapon->Use(target);
 			}
 		}
 		else //If in invalid attack was entered...

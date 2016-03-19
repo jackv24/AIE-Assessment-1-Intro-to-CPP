@@ -60,6 +60,8 @@ void MonsterRoom::Update(Character* player)
 					character->Action(m_characters);
 			}
 		}
+
+		DisplayInfo();
 	}
 }
 

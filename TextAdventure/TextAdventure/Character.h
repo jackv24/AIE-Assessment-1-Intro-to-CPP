@@ -23,6 +23,7 @@ public:
 	int GetHealth();
 
 	void RemoveHealth(int amount);
+	void AddHealth(int amount);
 	bool IsAlive();
 
 	//virtual action function is called on subclasses if they implement the function
@@ -36,6 +37,7 @@ public:
 protected:
 	String m_name;
 	int m_health;
+	int m_maxHealth;
 
 	std::vector<Item*> m_inventory;
 };
