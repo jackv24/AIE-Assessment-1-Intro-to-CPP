@@ -9,9 +9,14 @@ TreasureRoom::TreasureRoom()
 	SetType(Type::TREASURE);
 	SetDescription("You encounter a treasure room!");
 
-	//TODO: randomly add items
-	m_items.push_back(new Sword());
-	m_items.push_back(new Potion());
+	//Randomly add items
+	if(rand() % 2 == 1)
+		m_items.push_back(new Sword());
+
+	int potionCount = rand() % 3;
+
+	for (int i = 0; i < potionCount; i++)
+		m_items.push_back(new Potion());
 }
 
 TreasureRoom::~TreasureRoom()
@@ -97,6 +102,8 @@ void TreasureRoom::Update(Character* player)
 					//If there are no more items left to pickup, leave room command
 					if(m_items.empty())
 						break;
+
+					ListItems();
 				}
 			}
 			else if (command.ToLowercase() == "list")

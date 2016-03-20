@@ -6,6 +6,7 @@
 */
 
 #include <iostream>
+#include <time.h>
 #include "Helper.h"
 #include "Windows.h"
 #include "Map.h"
@@ -35,6 +36,9 @@ void PrintHelp()
 
 int main()
 {
+	//Setup seed for random elements
+	srand(time(NULL));
+
 	// Console handle to change colour
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 

@@ -1,13 +1,9 @@
 #include "Demon.h"
-#include <time.h>
 
 Demon::Demon()
 {
 	m_name = "Demon";
 	m_health = m_maxHealth = 50;
-
-	//Rand initialised to prevent reinitialisation every action
-	srand(time(NULL));
 }
 
 Demon::~Demon()

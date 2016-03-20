@@ -1,6 +1,5 @@
 #include "MonsterRoom.h"
 #include "Demon.h"
-#include <time.h>
 
 MonsterRoom::MonsterRoom()
 {
@@ -28,8 +27,6 @@ void MonsterRoom::Update(Character* player)
 	if (m_characters.empty())
 	{
 		m_characters.push_back(player);
-
-		srand(time(NULL));
 
 		int numEnemies = rand() % 3;
 

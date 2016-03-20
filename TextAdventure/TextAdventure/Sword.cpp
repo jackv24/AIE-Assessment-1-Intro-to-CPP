@@ -1,12 +1,9 @@
 #include "Sword.h"
-#include <time.h>
 
 Sword::Sword()
 {
 	m_name = "Sword";
 	m_type = Type::WEAPON;
-
-	srand(time(NULL));
 }
 
 Sword::~Sword()
