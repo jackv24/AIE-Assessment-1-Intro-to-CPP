@@ -1,5 +1,7 @@
 #include "MonsterRoom.h"
+
 #include "Demon.h"
+#include "StrongerDemon.h"
 
 MonsterRoom::MonsterRoom()
 {
@@ -26,13 +28,18 @@ void MonsterRoom::Update(Character* player)
 	//If the character vector hasn't been populated
 	if (m_characters.empty())
 	{
+		//Make the player index 0
 		m_characters.push_back(player);
 
+		//Spawn up to 3 enemies
 		int numEnemies = rand() % 3;
-
 		for (int i = 0; i <= numEnemies; i++)
 		{
-			m_characters.push_back(new Demon());
+			//Randomly select enemy to spawn
+			if (rand() % 2 == 0)
+				m_characters.push_back(new Demon());
+			else
+				m_characters.push_back(new StrongerDemon());
 		}
 	}
 

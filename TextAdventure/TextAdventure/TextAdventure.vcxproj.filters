@@ -75,6 +75,9 @@
     <ClInclude Include="Potion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="StrongerDemon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -118,6 +121,9 @@
     </ClCompile>
     <ClCompile Include="Potion.cpp">
       <Filter>Source Files\Items\Consumables</Filter>
+    </ClCompile>
+    <ClCompile Include="StrongerDemon.cpp">
+      <Filter>Source Files\Characters</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
