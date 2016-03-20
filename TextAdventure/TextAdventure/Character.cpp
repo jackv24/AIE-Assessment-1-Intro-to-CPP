@@ -87,7 +87,7 @@ void Character::DisplayInventory()
 	{
 		std::cout << "Inventory:" << std::endl;
 
-		for (int i = 0; i < m_inventory.size(); i++)
+		for (unsigned int i = 0; i < m_inventory.size(); i++)
 		{
 			//Display the item name
 			std::cout << i + 1 << ". " << m_inventory[i]->GetName();

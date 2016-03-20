@@ -12,7 +12,7 @@ MonsterRoom::~MonsterRoom()
 	if (!m_characters.empty())
 	{
 		//Delete character pointers (that aren't the player - that is handled elsewhere)
-		for (int i = 1; i < m_characters.size(); i++)
+		for (unsigned int i = 1; i < m_characters.size(); i++)
 		{
 			delete m_characters[i];
 		}
@@ -65,7 +65,7 @@ void MonsterRoom::Update(Character* player)
 bool MonsterRoom::IsClear()
 {
 	//Iterate through the monsters only (skip player at index 0)
-	for (int i = 1; i < m_characters.size(); i++)
+	for (unsigned int i = 1; i < m_characters.size(); i++)
 	{
 		//If there is still a monster alive, the room is not clear
 		if (m_characters[i]->IsAlive())
@@ -79,7 +79,7 @@ bool MonsterRoom::IsClear()
 void MonsterRoom::DisplayInfo()
 {
 	std::cout << "\nEnemies:\n";
-	for (int i = 1; i < m_characters.size(); i++)
+	for (unsigned int i = 1; i < m_characters.size(); i++)
 	{
 		std::cout << i << ". " << m_characters[i]->GetName() << " (" << m_characters[i]->GetHealth() << "HP)" << "\n";
 	}

@@ -37,7 +37,7 @@ void PrintHelp()
 int main()
 {
 	//Setup seed for random elements
-	srand(time(NULL));
+	srand((unsigned int)time(NULL));
 
 	// Console handle to change colour
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);

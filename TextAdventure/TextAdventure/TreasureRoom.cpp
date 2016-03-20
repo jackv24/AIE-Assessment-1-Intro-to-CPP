@@ -24,7 +24,7 @@ TreasureRoom::~TreasureRoom()
 	if (!m_items.empty())
 	{
 		//Delete item pointers
-		for (int i = 0; i < m_items.size(); i++)
+		for (unsigned int i = 0; i < m_items.size(); i++)
 		{
 			delete m_items[i];
 		}
@@ -37,7 +37,7 @@ void TreasureRoom::ListItems()
 {
 	std::cout << "\nRoom contains:" << std::endl;
 
-	for (int i = 0; i < m_items.size(); i++)
+	for (unsigned int i = 0; i < m_items.size(); i++)
 	{
 		std::cout << i + 1 << ". " << m_items[i]->GetName() << std::endl;
 	}
@@ -77,15 +77,14 @@ void TreasureRoom::Update(Character* player)
 			}
 			else if (command.ToLowercase() == "pickup")
 			{
-				//Initialise item index out of bounds
-				int itemNumber = -1;
+				unsigned int itemNumber;
 
 				//Get input number and subtract one (array starts at 0, not 1)
 				std::cin >> itemNumber;
 				itemNumber--;
 
 				//Make sure the chosen enemy index is within bounds
-				if (itemNumber < 0 || itemNumber >= m_items.size())
+				if (itemNumber >= m_items.size())
 				{
 					std::cout << "That item does not exist!" << std::endl;
 				}

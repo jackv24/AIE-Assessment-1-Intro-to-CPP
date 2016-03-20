@@ -7,9 +7,6 @@ Player::Player()
 {
 	m_name = "You";
 	m_health = m_maxHealth = 100;
-
-	//Rand initialised to prevent reinitialisation every action
-	srand(time(NULL));
 }
 
 Player::~Player()
@@ -42,13 +39,12 @@ void Player::Action(std::vector<Character*> characters)
 
 		if (command.ToLowercase() == "attack")
 		{
-			//Initialise enemy index out of bounds
-			int enemyNumber = -1;
+			unsigned int enemyNumber;
 
 			std::cin >> enemyNumber;
 
 			//Make sure the chosen enemy index is within bounds
-			if (enemyNumber < 0 || enemyNumber >= characters.size())
+			if (enemyNumber >= characters.size())
 			{
 				std::cout << "That enemy does not exist!\n";
 				continue;
@@ -82,7 +78,7 @@ void Player::Action(std::vector<Character*> characters)
 			int itemIndex = -1;
 
 			//Iterate through inventory to find item
-			for (int i = 0; i < m_inventory.size(); i++)
+			for (unsigned int i = 0; i < m_inventory.size(); i++)
 			{
 				if (m_inventory[i]->GetName().ToLowercase() == itemName.ToLowercase())
 				{
@@ -161,7 +157,7 @@ void Player::Attack(Character* target)
 		}
 		else if (command.ToLowercase() == "punch")
 		{
-			std::cout << m_name << " punched " << target->GetName() << ".\n\n";
+			std::cout << "You punched yourself.\n\n";
 
 			//Damage between 20 and 30
 			target->RemoveHealth(rand() % 10 + 20);
